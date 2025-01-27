@@ -17,6 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # CORS
+    'corsheaders',
+
     # Apps de terceros
     'rest_framework',
     'rest_framework_simplejwt',
@@ -26,6 +29,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # CORS
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,11 +65,11 @@ WSGI_APPLICATION = 'facerec_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'facerecdb',       # nombre de tu BD
-        'USER': 'postgres',        # usuario
-        'PASSWORD': '12341234', # contraseña
-        'HOST': 'localhost',       # o la IP de tu server
-        'PORT': '5432',            # puerto (por defecto 5432)
+        'NAME': 'loginFAce',       
+        'USER': 'postgres',        
+        'PASSWORD': 'Teddy2001',  
+        'HOST': 'localhost',       
+        'PORT': '5432',            
     }
 }
 
@@ -82,10 +89,16 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-# Configurar archivos estáticos
-STATIC_URL = '/static/'
+# Configurar CORS
+CORS_ALLOW_ALL_ORIGINS = True
+# O si prefieres restringir: 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173"
+# ]
 
-# Configurar MEDIA para archivos subidos (imágenes)
+# Archivos estáticos y media
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 

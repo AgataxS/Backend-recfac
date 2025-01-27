@@ -21,6 +21,7 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, password, username, **extra_fields)
 
+
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=150, unique=True)
@@ -28,7 +29,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # Guarda el vector facial como texto
     face_encoding = models.TextField(null=True, blank=True)
 
-    # Guarda la foto en /media/profiles/
+    # (opcional) Guarda la foto en /media/profiles/
     profile_image = models.ImageField(upload_to='profiles/', null=True, blank=True)
 
     # Campos de estado
