@@ -65,9 +65,9 @@ WSGI_APPLICATION = 'facerec_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'loginFAce',       
+        'NAME': 'facer',       #facerecdb
         'USER': 'postgres',        
-        'PASSWORD': 'Teddy2001',  
+        'PASSWORD': '12341234',  
         'HOST': 'localhost',       
         'PORT': '5432',            
     }
